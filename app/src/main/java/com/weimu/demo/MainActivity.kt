@@ -1,4 +1,4 @@
-package com.weimu.richedittextdemo
+package com.weimu.demo
 
 import android.os.Bundle
 import com.orhanobut.logger.Logger

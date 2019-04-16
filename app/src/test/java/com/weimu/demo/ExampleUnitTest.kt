@@ -1,4 +1,4 @@
-package com.weimu.richedittextdemo
+package com.weimu.demo
 
 import org.junit.Test
 
