@@ -35,16 +35,18 @@ RE.callback = function () {
   window.JSBridge.showSource(RE.editor.innerHTML)
 }
 
-RE.setHtml = function (contents) {
-  RE.editor.innerHTML = decodeURIComponent(contents.replace(/\+/g, '%20'));
-}
-
 RE.appendContent = function (contents) {
   RE.setHtml(RE.getHtml() + contents)
 }
 
 RE.getHtml = function () {
   return RE.editor.innerHTML;
+}
+
+RE.setHtml = function (content) {
+   RE.editor.innerHTML=""
+   document.execCommand('insertHTML', false, content);
+   document.execCommand('insertHTML', false, "<p><br></p>");//默认要有p标签
 }
 
 RE.getText = function () {

@@ -34,5 +34,5 @@ ext{
     targetSdkVersion = 28
     compileSdkVersion = 28
 
-    universal_ui='0.2.1'
+    universal_ui='0.2.2'
 }

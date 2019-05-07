@@ -29,6 +29,18 @@
                 android:layout_width="wrap_content"
                 android:text="加入图片"
                 android:layout_height="wrap_content"/>
+
+        <Button
+                android:id="@+id/mBtn3"
+                android:layout_width="wrap_content"
+                android:text="设置内容"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:id="@+id/mBtn4"
+                android:layout_width="wrap_content"
+                android:text="预览"
+                android:layout_height="wrap_content"/>
     </LinearLayout>
 
 

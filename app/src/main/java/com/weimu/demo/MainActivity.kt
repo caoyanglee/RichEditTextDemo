@@ -19,8 +19,17 @@ class MainActivity : BaseActivity() {
 
         mBtnAddImage.setOnClickListenerPro {
             mRichEditText.addImage(
-                url = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555410316037&di=addbbd286d6579835b233c9371ae9002&imgtype=0&src=http%3A%2F%2Fimg.wx.lengxiaohua.cn%2Fweixin%2F201505%2Ffdde55fca65b0915de13418a5de71f88.jpg"
+                url = "http://sjbz.fd.zol-img.com.cn/t_s320x510c/g5/M00/04/04/ChMkJ1jctw-IGJY8AAMI_lmg3L0AAbNOwPrPvsAAwkW968.jpg"
             )
+        }
+
+
+        mBtn3.setOnClickListenerPro {
+            mRichEditText.setHtml("<p>吃屎吧你</p>")
+        }
+
+        mBtn4.setOnClickListenerPro {
+            startActivity(PreviewActivity.newIntent(this@MainActivity, mRichEditText.getHtml()))
         }
 
     }

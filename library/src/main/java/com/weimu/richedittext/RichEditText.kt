@@ -22,7 +22,6 @@ import java.lang.reflect.Field
  */
 class RichEditText : WebView, LifecycleObserver {
 
-
     private val SETUP_HTML = "file:///android_asset/editor.html"
     private var mContents: String = ""
 
@@ -31,14 +30,6 @@ class RichEditText : WebView, LifecycleObserver {
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
-
-    private inner class JSBridge {
-
-        @JavascriptInterface
-        fun showSource(html: String) {
-            mContents = html
-        }
-    }
 
     init {
         //配置
@@ -65,14 +56,16 @@ class RichEditText : WebView, LifecycleObserver {
             webChromeClient = EditorWebChromeClient()
             addJsBridge(JSBridge(), "JSBridge")
         }
-
-
         loadUrl(SETUP_HTML);
-
     }
 
-    //获取内容
-    fun getHtml() = mContents
+
+    private inner class JSBridge {
+        @JavascriptInterface
+        fun showSource(html: String) {
+            mContents = html
+        }
+    }
 
     /**
      * 安卓调用js方法 2种
@@ -88,6 +81,15 @@ class RichEditText : WebView, LifecycleObserver {
         }
     }
 
+
+    //获取内容
+    fun getHtml() = mContents
+
+    //设置内容
+    fun setHtml(content: String) {
+        exec("RE.setHtml('$content');")
+    }
+
     //设置hint
     fun setPlaceholder(placeholder: String) {
         exec("RE.setPlaceholder('$placeholder');")
@@ -101,10 +103,11 @@ class RichEditText : WebView, LifecycleObserver {
         Handler().postDelayed({ showKeyBoard() }, 400)
     }
 
+
     //显示键盘
-    fun showKeyBoard() {
+    private fun showKeyBoard() {
         val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        requestFocus()
+        this.requestFocus()
         inputMethodManager.showSoftInput(this, 0) //强制显示键盘
     }
 
@@ -120,9 +123,7 @@ class RichEditText : WebView, LifecycleObserver {
     }
 
 
-    protected inner class EditorWebViewClient : WebViewClient() {
-
-    }
+    protected inner class EditorWebViewClient : WebViewClient()
 
     protected inner class EditorWebChromeClient : WebChromeClient() {
         override fun onConsoleMessage(consoleMessage: ConsoleMessage?): Boolean {
