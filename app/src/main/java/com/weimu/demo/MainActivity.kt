@@ -1,6 +1,7 @@
 package com.weimu.demo
 
 import android.os.Bundle
+import android.os.Handler
 import com.orhanobut.logger.Logger
 import com.weimu.universalview.core.activity.BaseActivity
 import com.weimu.universalview.ktx.setOnClickListenerPro
@@ -32,5 +33,9 @@ class MainActivity : BaseActivity() {
             startActivity(PreviewActivity.newIntent(this@MainActivity, mRichEditText.getHtml()))
         }
 
+
+        Handler().postDelayed({
+            mRichEditText.focus()
+        }, 300)
     }
 }

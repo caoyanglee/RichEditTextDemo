@@ -88,6 +88,8 @@ class RichEditText : WebView, LifecycleObserver {
     //设置内容
     fun setHtml(content: String) {
         exec("RE.setHtml('$content');")
+        Handler().postDelayed({ scroll2Bottom() }, 300)
+        Handler().postDelayed({ showKeyBoard() }, 400)
     }
 
     //设置hint
@@ -103,6 +105,10 @@ class RichEditText : WebView, LifecycleObserver {
         Handler().postDelayed({ showKeyBoard() }, 400)
     }
 
+    //编辑框获取焦点
+    fun focus() {
+        exec("RE.focus()")
+    }
 
     //显示键盘
     private fun showKeyBoard() {
