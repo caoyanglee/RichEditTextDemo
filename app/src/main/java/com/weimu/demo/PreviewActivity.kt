@@ -3,12 +3,11 @@ package com.weimu.demo
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebSettings
 import android.webkit.WebView
-import com.weimu.universalib.ktx.getNetWorkInfo
 import com.weimu.universalview.core.activity.BaseActivity
+import com.weimu.universalview.ktx.getNetWorkInfo
 import kotlinx.android.synthetic.main.activity_preview.*
 
 class PreviewActivity : BaseActivity() {
