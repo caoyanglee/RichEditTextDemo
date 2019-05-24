@@ -20,7 +20,8 @@ class MainActivity : BaseActivity() {
 
         mBtnAddImage.setOnClickListenerPro {
             mRichEditText.addImage(
-                url = "http://sjbz.fd.zol-img.com.cn/t_s320x510c/g5/M00/04/04/ChMkJ1jctw-IGJY8AAMI_lmg3L0AAbNOwPrPvsAAwkW968.jpg"
+//                url = "http://sjbz.fd.zol-img.com.cn/t_s320x510c/g5/M00/04/04/ChMkJ1jctw-IGJY8AAMI_lmg3L0AAbNOwPrPvsAAwkW968.jpg"
+                url = "https://hifiimg.oss-cn-hangzhou.aliyuncs.com/app/1558668032008?x-oss-process=style/cover"
             )
         }
 
