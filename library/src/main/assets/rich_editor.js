@@ -349,3 +349,26 @@ RE.addImage = function (url, alt) {
   document.execCommand('insertHTML', false, '<img src="' + url + '" alt="' + alt + '" />');//默认要有p标签
   document.execCommand('insertHTML', false, "<p><br></p>");//默认要有p标签
 };
+
+//统计字数
+RE.getPureText =function(){
+    return getNodePureText(RE.editor)
+}
+
+function getNodePureText(parentNode){
+    var totalStr = ''
+    for(var i = 0 ; i< parentNode.children.length;i++){
+        var node = parentNode.children[i]
+        if(node.nodeType === 1){
+         //元素节点
+         if(node.children.length>0){
+           var itemStr = getNodePureText(node)
+           totalStr  = totalStr + itemStr
+         } else {
+            var itemStr = node.innerHTML
+            totalStr  =  totalStr + itemStr
+         }
+       }
+    }
+    return totalStr
+}

@@ -110,12 +110,20 @@ class RichEditText : WebView, LifecycleObserver {
         exec("RE.focus()")
     }
 
+    //获取纯文本内容
+    fun getPureText(listener: ((count: String) -> Unit)) {
+        exec("RE.getPureText()") {
+            listener.invoke(it)
+        }
+    }
+
     //显示键盘
     private fun showKeyBoard() {
         val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         this.requestFocus()
         inputMethodManager.showSoftInput(this, 0) //强制显示键盘
     }
+
 
     //增加JSBride
     @SuppressLint("JavascriptInterface")

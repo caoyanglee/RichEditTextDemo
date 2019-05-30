@@ -13,8 +13,12 @@ class MainActivity : BaseActivity() {
     override fun afterViewAttach(savedInstanceState: Bundle?) {
 
         lifecycle.addObserver(mRichEditText)
+
         mBtnOutHtml.setOnClickListenerPro {
             Logger.d("${mRichEditText.getHtml()}")
+            mRichEditText.getPureText {
+
+            }
         }
 
 
